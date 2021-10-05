@@ -4,6 +4,6 @@ COPY ./src ./src
 RUN mvn dependency:go-offline -B
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
-WORKDIR /myapp
+WORKDIR /my-app
 COPY --from=maven target/my-app-1.0-SNAPSHOT.jar ./my-app-1.0-SNAPSHOT.jar
 CMD ["java", "-cp", "target/my-app-1.0-SNAPSHOT.jar","com.mycompany.app.App"]
